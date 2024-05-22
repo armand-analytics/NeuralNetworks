@@ -6,7 +6,29 @@ Este proyecto utiliza PyTorch para desarrollar un clasificador de dígitos escri
 
 ```mermaid
 graph TD
-    A[Cargar Datos] --> B[Preprocesar Datos]
-    B --> C[Entrenar Modelo]
-    C --> D[Validar Modelo]
-    D --> E[Evaluar Resultados]
+    subgraph Inicio
+        A[Definir el modelo de red neuronal]
+        B(Crear instancia de la red neuronal)
+        C(Calcular número de parámetros)
+    end
+
+    subgraph Entrenamiento
+        D[Configurar dispositivo]
+        E(Definir función de pérdida y optimizador)
+        F(Función de entrenamiento)
+    end
+
+    subgraph Validación
+        G(Función de validación)
+        H[Entrenamiento y validación del modelo]
+    end
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G
+    G --> H
+    H -->|Fin| Fin
+
